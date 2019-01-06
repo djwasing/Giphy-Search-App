@@ -16,10 +16,10 @@
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron" id="jumbo">
         <div class="container">
-            <h1 class="display-4">Movie GIF Search</h1>
-            <p class="lead">Press a button to return movie GIFs, or add your own movie with the "Add Movie" text box!</p>
+            <h1 class="display-4" id="title">Movie GIF Search</h1>
+            <p class="lead">Click a button to return movie GIFs, or add your own movie button with the "Add Movie" text box!</p>
             <p id="btnArea">
                 <button type="button" class="btn btn-primary" id="btn">Lord of the Rings</button>
                 <button type="button" class="btn btn-primary" id="btn">Star Wars</button>
@@ -34,11 +34,10 @@
                     <div class="form-group">
                         <label for="addMovie" id="addMovie">Add Movie</label>
                         <input type="movie" class="form-control" id="inputMovie" placeholder="Type a movie title here!">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" id="subBtn">Submit</button>
                     </div>
                 </form> 
             </p>
-
         </div>
     </div>
     <!-- Generated GIFs will go in this area -->

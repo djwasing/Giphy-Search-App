@@ -13,3 +13,12 @@
 #addMovie {
     font-weight: bold;
 }
+
+/* #title {
+    margin-top: -50px;
+} */
+
+#jumbo {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
