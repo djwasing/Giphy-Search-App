@@ -1,16 +1,54 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>gif_dynamic</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
     <script src="assets/javascript/app.js"></script>
 </head>
+
 <body>
-    
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Movie GIF Search</h1>
+            <p class="lead">Press a button to return movie GIFs, or add your own movie with the "Add Movie" text box!</p>
+            <p id="btnArea">
+                <button type="button" class="btn btn-primary" id="btn">Lord of the Rings</button>
+                <button type="button" class="btn btn-primary" id="btn">Star Wars</button>
+                <button type="button" class="btn btn-primary" id="btn">Spider-Man</button>
+                <button type="button" class="btn btn-primary" id="btn">The Sandlot</button>
+                <button type="button" class="btn btn-primary" id="btn">Heavy Weights</button>
+            </p>
+            <br>
+            <br>
+            <p id="formArea">
+                <form>
+                    <div class="form-group">
+                        <label for="addMovie" id="addMovie">Add Movie</label>
+                        <input type="movie" class="form-control" id="inputMovie" placeholder="Type a movie title here!">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form> 
+            </p>
+
+        </div>
+    </div>
+    <!-- Generated GIFs will go in this area -->
+    <div class="container" id="gifArea">
+
+
+    </div>
+
+
+
 </body>
+
 </html>

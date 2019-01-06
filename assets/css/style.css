@@ -1,0 +1,15 @@
+#btnArea {
+    float: left;
+}
+
+#btn {
+    margin: 5px 5px;   
+}
+
+#inputMovie {
+    margin-bottom: 10px;
+}
+
+#addMovie {
+    font-weight: bold;
+}
