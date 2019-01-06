@@ -53,6 +53,7 @@ $(document).ready(function() {
         var movieName = $(this).attr("movieName");
         var apiKey = "l4rTiwy6XT6KwlkOqVtLThMThBJYqrhU";
         // var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + movieName + "&limit=10&rating=g" ;
+        //using backsticks syntax
         var queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${movieName}&limit=10&rating=g` ;
 
     $.ajax({
@@ -68,14 +69,10 @@ $(document).ready(function() {
         
         //adding classes to the new GIFs. adding a src attr so it pulls the STILL version.
         newImg.addClass("img-fluid movieGif").attr("src", data[i].images.fixed_width_still.url)
-            // giving the GIF an alt
-            .attr("alt", movieName)
-            // giving an attr of state with a value of still, so it keeps the still img
-            .attr("state", "still")
-            // defining the still attr as the still version of the returned gif
-            .attr("still", data[i].images.fixed_width_still.url)
-            // creating an animated version to be stored as an attr until needed upon user click
-            .attr("animated", data[i].images.fixed_width.url);
+            .attr("alt", movieName)    // giving the GIF an alt
+            .attr("state", "still")    // giving an attr of state with a value of still, so it keeps the still img
+            .attr("still", data[i].images.fixed_width_still.url)    // defining the still attr as the still version of the returned gif
+            .attr("animated", data[i].images.fixed_width.url);  // creating an animated version to be stored as an attr until needed upon user click
             // appending the new gifs to the gifArea
         $("#gifArea").append(newImg);
       }
@@ -84,25 +81,26 @@ $(document).ready(function() {
     })
         //click handler for when a GIF is clicked. 
     $(document).on("click", ".movieGif", function() {
+        //creating state var for a boolean
         var state = $(this).attr("state");
-
+        // if the state is still, which we know it is when it is created, then 
+        // replace the still src with animated when clicked AND
+        // give the state attr the value of animated from above (the animated version of the gif)
         if (state === "still") {
             $(this).attr("src", $(this).attr("animated"))
             $(this).attr("state", "animated")
         } 
+        // if the state does not = still when clicked, give the img the still attr
+        // and set the state attr to a value of still
         else {
             $(this).attr("src", $(this).attr("still"))
             $(this).attr("state", "still")
         }
         
-        //if still image, then give it animated attr, if animated, give it the still attr
+        
 
     })
-//set a max size for the gifs if possible?
-//show 10 gifs in the gifArea div with RATING: displayed
 
-//in order to get the rating:
-//use JSON to go into the object, key(rating) and display it
 
 
 
