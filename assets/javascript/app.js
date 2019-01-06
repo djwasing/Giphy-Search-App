@@ -62,20 +62,27 @@ $(document).ready(function() {
       console.log(response.data);
       var data = response.data;
       for (i = 0; i < data.length; i++) {
+          //dynamically creates img with width and height req
         var newImg = $("<img width= '200px' height= '150px'>");
         //<img src="ffbwwg" alt="bbdbs" class="img-fluid" />
         
+        //adding classes to the new GIFs. adding a src attr so it pulls the STILL version.
         newImg.addClass("img-fluid movieGif").attr("src", data[i].images.fixed_width_still.url)
+            // giving the GIF an alt
             .attr("alt", movieName)
+            // giving an attr of state with a value of still, so it keeps the still img
             .attr("state", "still")
+            // defining the still attr as the still version of the returned gif
             .attr("still", data[i].images.fixed_width_still.url)
+            // creating an animated version to be stored as an attr until needed upon user click
             .attr("animated", data[i].images.fixed_width.url);
+            // appending the new gifs to the gifArea
         $("#gifArea").append(newImg);
       }
     });
 
     })
-        //comment in this area
+        //click handler for when a GIF is clicked. 
     $(document).on("click", ".movieGif", function() {
         var state = $(this).attr("state");
 
