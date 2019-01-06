@@ -65,7 +65,6 @@ $(document).ready(function() {
       for (i = 0; i < data.length; i++) {
           //dynamically creates img with width and height req
         var newImg = $("<img width= '200px' height= '150px'>");
-        //<img src="ffbwwg" alt="bbdbs" class="img-fluid" />
         
         //adding classes to the new GIFs. adding a src attr so it pulls the STILL version.
         newImg.addClass("img-fluid movieGif").attr("src", data[i].images.fixed_width_still.url)
