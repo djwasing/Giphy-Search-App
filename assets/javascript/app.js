@@ -54,7 +54,7 @@ $(document).ready(function() {
         var apiKey = "l4rTiwy6XT6KwlkOqVtLThMThBJYqrhU";
         // var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + movieName + "&limit=10&rating=g" ;
         //using backsticks syntax
-        var queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${movieName}&limit=10&rating=g` ;
+        var queryURL = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${movieName}&limit=10` ;
 
     $.ajax({
       url: queryURL,
