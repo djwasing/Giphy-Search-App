@@ -62,29 +62,34 @@ $(document).ready(function() {
     }).then(function(response) {
       console.log(response.data);
       var data = response.data;
+      var rating = data.rating;
       for (i = 0; i < data.length; i++) {
-          //dynamically creates img with width and height req
-        var newImg = $("<img width= '200px' height= '150px'>");
+          
+        var newImg = $("<img height= '250px' width= '250px'>");     //dynamically creates img with width and height req
+        var p = $("<p>").text("Rating: " + data[i].rating.toUpperCase());         //get the rating from the response
         
         //adding classes to the new GIFs. adding a src attr so it pulls the STILL version.
-        newImg.addClass("img-fluid movieGif").attr("src", data[i].images.fixed_width_still.url)
-            .attr("alt", movieName)    // giving the GIF an alt
-            .attr("state", "still")    // giving an attr of state with a value of still, so it keeps the still img
+        newImg.addClass("img-fluid movieGif").attr("src", data[i].images.fixed_width_still.url)  
+            .attr("alt", movieName)                                 // giving the GIF an alt
+            .attr("state", "still")                                 // giving an attr of state with a value of still, so it keeps the still img
             .attr("still", data[i].images.fixed_width_still.url)    // defining the still attr as the still version of the returned gif
-            .attr("animated", data[i].images.fixed_width.url);  // creating an animated version to be stored as an attr until needed upon user click
-            // appending the new gifs to the gifArea
-        $("#gifArea").append(newImg);
+            .attr("animated", data[i].images.fixed_width.url);      // creating an animated version to be stored as an attr until needed upon user click                               
+            p.addClass("ratings");                                  // adding a class to target in css
+            $("#gifArea").append(newImg, p);                        // appending the new gifs to the gifArea
+        
       }
     });
 
     })
         //click handler for when a GIF is clicked. 
     $(document).on("click", ".movieGif", function() {
-        //creating state var for a boolean
-        var state = $(this).attr("state");
+        
+        var state = $(this).attr("state");          //creating state var for a boolean
+        
         // if the state is still, which we know it is when it is created, then 
         // replace the still src with animated when clicked AND
         // give the state attr the value of animated from above (the animated version of the gif)
+        
         if (state === "still") {
             $(this).attr("src", $(this).attr("animated"))
             $(this).attr("state", "animated")
@@ -95,19 +100,7 @@ $(document).ready(function() {
             $(this).attr("src", $(this).attr("still"))
             $(this).attr("state", "still")
         }
-        
-        
-
     })
-
-
-
-
-
-
-
-
-
 });
 
 
